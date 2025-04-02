@@ -4,7 +4,7 @@ The notification translation model re-uses the parameter, format and notificatio
 
 ## Building the proto
 
-See the [README](https://github.com/sologenic/fs-notification-model/README.md) for the used imports.
+See the [README](https://github.com/sologenic/com-fs-notification-model/README.md) for the used imports.
 
 Important to note is:
 

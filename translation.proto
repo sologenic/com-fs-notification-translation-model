@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package translation;
 
-option go_package = "./translation";
+import "sologenic/com-fs-notification-model/types/types.proto";
+import "sologenic/com-fs-notification-model/parameters/parameters.proto";
+import "sologenic/com-fs-notification-model/formats/formats.proto";
 
-import "com-fs-notification-model/types/types.proto";
-import "com-fs-notification-model/parameters/parameters.proto";
-import "com-fs-notification-model/formats/formats.proto";
+option go_package = "./translation";
 
 service TranslationService {
     // Retrieval

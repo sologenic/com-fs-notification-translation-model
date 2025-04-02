@@ -48,22 +48,20 @@ func (c *translationServiceClient) Parse(ctx context.Context, in *TranslationReq
 }
 
 // TranslationServiceServer is the server API for TranslationService service.
-// All implementations must embed UnimplementedTranslationServiceServer
+// All implementations should embed UnimplementedTranslationServiceServer
 // for forward compatibility
 type TranslationServiceServer interface {
 	// Retrieval
 	Parse(context.Context, *TranslationRequest) (*TranslationResponse, error)
-	mustEmbedUnimplementedTranslationServiceServer()
 }
 
-// UnimplementedTranslationServiceServer must be embedded to have forward compatible implementations.
+// UnimplementedTranslationServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedTranslationServiceServer struct {
 }
 
 func (UnimplementedTranslationServiceServer) Parse(context.Context, *TranslationRequest) (*TranslationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Parse not implemented")
 }
-func (UnimplementedTranslationServiceServer) mustEmbedUnimplementedTranslationServiceServer() {}
 
 // UnsafeTranslationServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to TranslationServiceServer will

@@ -4,7 +4,7 @@ go 1.23.7
 
 require (
 	github.com/sologenic/com-fs-notification-model v0.0.0-20250328174139-bae032ac2541
-	github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20250314155456-e14d49a8b728
+	github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20241114183617-e622df0f57e8
 	google.golang.org/grpc v1.65.0
 	google.golang.org/protobuf v1.34.2
 )
