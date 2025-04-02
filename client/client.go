@@ -2,7 +2,7 @@ package client
 
 import (
 	grpcdef "github.com/sologenic/com-fs-notification-translation-model"
-	grpcclient "github.com/sologenic/fs-utils-lib/go/grpc-client"
+	grpcclient "github.com/sologenic/com-fs-utils-lib/go/grpc-client"
 )
 
 const endpoint = "NOTIFICATION_PARSER_LIB"
