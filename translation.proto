@@ -5,23 +5,34 @@ package translation;
 import "sologenic/com-fs-notification-model/types/types.proto";
 import "sologenic/com-fs-notification-model/parameters/parameters.proto";
 import "sologenic/com-fs-notification-model/formats/formats.proto";
+import "sologenic/com-fs-email-template-model/emailtemplate.proto";
 
 option go_package = "./translation";
 
 service TranslationService {
     // Retrieval
-    rpc Parse(TranslationRequest) returns (TranslationResponse) {}
+    rpc Parse(NotificationTranslationRequest) returns (NotificationTranslationResponse) {}
+    rpc ParseEmail(EmailTranslationRequest) returns (EmailTranslationResponse) {}
 }
 
-message TranslationRequest {
+message NotificationTranslationRequest {
     Language Language = 1;
     notification.types.NotificationType NotificationType = 2;
     repeated notification.parameters.Parameter Parameter = 3;
     notification.formats.Format Format = 4;
 }
 
-message TranslationResponse {
+message NotificationTranslationResponse {
     string Text = 1;
+}
+
+message EmailTranslationRequest {
+    Language Language = 1;
+    repeated emailtemplate.TextElement TextElements = 2; // List of content blocks to be translated
+}
+
+message EmailTranslationResponse {
+    repeated emailtemplate.TextElement TranslatedElements = 1;
 }
 
 // To add languages, add them in lowercase to be compatible with the translation file filenames
