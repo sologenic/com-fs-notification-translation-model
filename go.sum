@@ -62,6 +62,8 @@ github.com/sologenic/com-fs-email-template-model v0.0.0-20250404212613-9b76c7edc
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250404212613-9b76c7edcfab/go.mod h1:4KfaWkDr9tQJOXWKxKBO7r7cFKqHfeXF/QfJrFhDZEs=
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250407180821-b5b49e944a5c h1:IPikQsc1Xj21zVzWy/Nd+THS5Hz0po65f9NUJBfQi2c=
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250407180821-b5b49e944a5c/go.mod h1:4KfaWkDr9tQJOXWKxKBO7r7cFKqHfeXF/QfJrFhDZEs=
+github.com/sologenic/com-fs-email-template-model v0.0.0-20250407182606-8216f2615d27 h1:DXuTurwjXUKw5pFnRHuWhL4LQelOM4NBiZ2/UNZIfQo=
+github.com/sologenic/com-fs-email-template-model v0.0.0-20250407182606-8216f2615d27/go.mod h1:4KfaWkDr9tQJOXWKxKBO7r7cFKqHfeXF/QfJrFhDZEs=
 github.com/sologenic/com-fs-notification-model v0.0.0-20250328174139-bae032ac2541 h1:ZPhzsFD5h7Ai9fw4xCHoOFJs5QVp7saIpI4HoZqyp2U=
 github.com/sologenic/com-fs-notification-model v0.0.0-20250328174139-bae032ac2541/go.mod h1:ra+2m8VexCwK1VnWwlXB2FyooPS4m7BZHWjwAo2Awgw=
 github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20250131210530-7306ae3e5762 h1:T017vo3tyApAHcP6xHSQUY099YuWrzS/Gr4qfXyLnHo=
