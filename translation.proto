@@ -28,7 +28,8 @@ message NotificationTranslationResponse {
 
 message EmailTranslationRequest {
     Language Language = 1;
-    repeated emailtemplate.TextElement TextElements = 2; // List of content blocks to be translated
+    emailtemplate.EmailTemplateType EmailTemplateType = 2;
+    repeated emailtemplate.TextElement TextElements = 3; // List of content blocks to be translated
 }
 
 message EmailTranslationResponse {

@@ -194,8 +194,9 @@ type EmailTranslationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Language     Language                                   `protobuf:"varint,1,opt,name=Language,proto3,enum=translation.Language" json:"Language,omitempty"`
-	TextElements []*com_fs_email_template_model.TextElement `protobuf:"bytes,2,rep,name=TextElements,proto3" json:"TextElements,omitempty"` // List of content blocks to be translated
+	Language          Language                                      `protobuf:"varint,1,opt,name=Language,proto3,enum=translation.Language" json:"Language,omitempty"`
+	EmailTemplateType com_fs_email_template_model.EmailTemplateType `protobuf:"varint,2,opt,name=EmailTemplateType,proto3,enum=emailtemplate.EmailTemplateType" json:"EmailTemplateType,omitempty"`
+	TextElements      []*com_fs_email_template_model.TextElement    `protobuf:"bytes,3,rep,name=TextElements,proto3" json:"TextElements,omitempty"` // List of content blocks to be translated
 }
 
 func (x *EmailTranslationRequest) Reset() {
@@ -235,6 +236,13 @@ func (x *EmailTranslationRequest) GetLanguage() Language {
 		return x.Language
 	}
 	return Language_NOT_USED_LANGUAGE
+}
+
+func (x *EmailTranslationRequest) GetEmailTemplateType() com_fs_email_template_model.EmailTemplateType {
+	if x != nil {
+		return x.EmailTemplateType
+	}
+	return com_fs_email_template_model.EmailTemplateType(0)
 }
 
 func (x *EmailTranslationRequest) GetTextElements() []*com_fs_email_template_model.TextElement {
@@ -332,13 +340,18 @@ var file_translation_proto_rawDesc = []byte{
 	0x0a, 0x1f, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x72,
 	0x61, 0x6e, 0x73, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x65, 0x78, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x04, 0x54, 0x65, 0x78, 0x74, 0x22, 0x8c, 0x01, 0x0a, 0x17, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54,
+	0x04, 0x54, 0x65, 0x78, 0x74, 0x22, 0xdc, 0x01, 0x0a, 0x17, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54,
 	0x72, 0x61, 0x6e, 0x73, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x12, 0x31, 0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0e, 0x32, 0x15, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x6c, 0x61, 0x74, 0x69, 0x6f,
 	0x6e, 0x2e, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x08, 0x4c, 0x61, 0x6e, 0x67,
-	0x75, 0x61, 0x67, 0x65, 0x12, 0x3e, 0x0a, 0x0c, 0x54, 0x65, 0x78, 0x74, 0x45, 0x6c, 0x65, 0x6d,
-	0x65, 0x6e, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x65, 0x6d, 0x61,
+	0x75, 0x61, 0x67, 0x65, 0x12, 0x4e, 0x0a, 0x11, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54, 0x65, 0x6d,
+	0x70, 0x6c, 0x61, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32,
+	0x20, 0x2e, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e,
+	0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x54, 0x79, 0x70,
+	0x65, 0x52, 0x11, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65,
+	0x54, 0x79, 0x70, 0x65, 0x12, 0x3e, 0x0a, 0x0c, 0x54, 0x65, 0x78, 0x74, 0x45, 0x6c, 0x65, 0x6d,
+	0x65, 0x6e, 0x74, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x65, 0x6d, 0x61,
 	0x69, 0x6c, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x78, 0x74, 0x45,
 	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0c, 0x54, 0x65, 0x78, 0x74, 0x45, 0x6c, 0x65, 0x6d,
 	0x65, 0x6e, 0x74, 0x73, 0x22, 0x66, 0x0a, 0x18, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x54, 0x72, 0x61,
@@ -383,33 +396,35 @@ func file_translation_proto_rawDescGZIP() []byte {
 var file_translation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_translation_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_translation_proto_goTypes = []interface{}{
-	(Language)(0),                                   // 0: translation.Language
-	(*NotificationTranslationRequest)(nil),          // 1: translation.NotificationTranslationRequest
-	(*NotificationTranslationResponse)(nil),         // 2: translation.NotificationTranslationResponse
-	(*EmailTranslationRequest)(nil),                 // 3: translation.EmailTranslationRequest
-	(*EmailTranslationResponse)(nil),                // 4: translation.EmailTranslationResponse
-	(types.NotificationType)(0),                     // 5: notification.types.NotificationType
-	(*parameters.Parameter)(nil),                    // 6: notification.parameters.Parameter
-	(formats.Format)(0),                             // 7: notification.formats.Format
-	(*com_fs_email_template_model.TextElement)(nil), // 8: emailtemplate.TextElement
+	(Language)(0),                                      // 0: translation.Language
+	(*NotificationTranslationRequest)(nil),             // 1: translation.NotificationTranslationRequest
+	(*NotificationTranslationResponse)(nil),            // 2: translation.NotificationTranslationResponse
+	(*EmailTranslationRequest)(nil),                    // 3: translation.EmailTranslationRequest
+	(*EmailTranslationResponse)(nil),                   // 4: translation.EmailTranslationResponse
+	(types.NotificationType)(0),                        // 5: notification.types.NotificationType
+	(*parameters.Parameter)(nil),                       // 6: notification.parameters.Parameter
+	(formats.Format)(0),                                // 7: notification.formats.Format
+	(com_fs_email_template_model.EmailTemplateType)(0), // 8: emailtemplate.EmailTemplateType
+	(*com_fs_email_template_model.TextElement)(nil),    // 9: emailtemplate.TextElement
 }
 var file_translation_proto_depIdxs = []int32{
-	0, // 0: translation.NotificationTranslationRequest.Language:type_name -> translation.Language
-	5, // 1: translation.NotificationTranslationRequest.NotificationType:type_name -> notification.types.NotificationType
-	6, // 2: translation.NotificationTranslationRequest.Parameter:type_name -> notification.parameters.Parameter
-	7, // 3: translation.NotificationTranslationRequest.Format:type_name -> notification.formats.Format
-	0, // 4: translation.EmailTranslationRequest.Language:type_name -> translation.Language
-	8, // 5: translation.EmailTranslationRequest.TextElements:type_name -> emailtemplate.TextElement
-	8, // 6: translation.EmailTranslationResponse.TranslatedElements:type_name -> emailtemplate.TextElement
-	1, // 7: translation.TranslationService.Parse:input_type -> translation.NotificationTranslationRequest
-	3, // 8: translation.TranslationService.ParseEmail:input_type -> translation.EmailTranslationRequest
-	2, // 9: translation.TranslationService.Parse:output_type -> translation.NotificationTranslationResponse
-	4, // 10: translation.TranslationService.ParseEmail:output_type -> translation.EmailTranslationResponse
-	9, // [9:11] is the sub-list for method output_type
-	7, // [7:9] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	0,  // 0: translation.NotificationTranslationRequest.Language:type_name -> translation.Language
+	5,  // 1: translation.NotificationTranslationRequest.NotificationType:type_name -> notification.types.NotificationType
+	6,  // 2: translation.NotificationTranslationRequest.Parameter:type_name -> notification.parameters.Parameter
+	7,  // 3: translation.NotificationTranslationRequest.Format:type_name -> notification.formats.Format
+	0,  // 4: translation.EmailTranslationRequest.Language:type_name -> translation.Language
+	8,  // 5: translation.EmailTranslationRequest.EmailTemplateType:type_name -> emailtemplate.EmailTemplateType
+	9,  // 6: translation.EmailTranslationRequest.TextElements:type_name -> emailtemplate.TextElement
+	9,  // 7: translation.EmailTranslationResponse.TranslatedElements:type_name -> emailtemplate.TextElement
+	1,  // 8: translation.TranslationService.Parse:input_type -> translation.NotificationTranslationRequest
+	3,  // 9: translation.TranslationService.ParseEmail:input_type -> translation.EmailTranslationRequest
+	2,  // 10: translation.TranslationService.Parse:output_type -> translation.NotificationTranslationResponse
+	4,  // 11: translation.TranslationService.ParseEmail:output_type -> translation.EmailTranslationResponse
+	10, // [10:12] is the sub-list for method output_type
+	8,  // [8:10] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_translation_proto_init() }
