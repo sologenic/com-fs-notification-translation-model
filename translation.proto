@@ -40,4 +40,6 @@ message EmailTranslationResponse {
 enum Language {
     NOT_USED_LANGUAGE = 0; // Need unique enum values for proto (C requirement, we don't use C)
     english = 1;
+
+    korean = 100;
 }
