@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TranslationService_Parse_FullMethodName = "/translation.TranslationService/Parse"
+	TranslationService_Parse_FullMethodName      = "/translation.TranslationService/Parse"
+	TranslationService_ParseEmail_FullMethodName = "/translation.TranslationService/ParseEmail"
 )
 
 // TranslationServiceClient is the client API for TranslationService service.
@@ -27,7 +28,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TranslationServiceClient interface {
 	// Retrieval
-	Parse(ctx context.Context, in *TranslationRequest, opts ...grpc.CallOption) (*TranslationResponse, error)
+	Parse(ctx context.Context, in *NotificationTranslationRequest, opts ...grpc.CallOption) (*NotificationTranslationResponse, error)
+	ParseEmail(ctx context.Context, in *EmailTranslationRequest, opts ...grpc.CallOption) (*EmailTranslationResponse, error)
 }
 
 type translationServiceClient struct {
@@ -38,9 +40,18 @@ func NewTranslationServiceClient(cc grpc.ClientConnInterface) TranslationService
 	return &translationServiceClient{cc}
 }
 
-func (c *translationServiceClient) Parse(ctx context.Context, in *TranslationRequest, opts ...grpc.CallOption) (*TranslationResponse, error) {
-	out := new(TranslationResponse)
+func (c *translationServiceClient) Parse(ctx context.Context, in *NotificationTranslationRequest, opts ...grpc.CallOption) (*NotificationTranslationResponse, error) {
+	out := new(NotificationTranslationResponse)
 	err := c.cc.Invoke(ctx, TranslationService_Parse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *translationServiceClient) ParseEmail(ctx context.Context, in *EmailTranslationRequest, opts ...grpc.CallOption) (*EmailTranslationResponse, error) {
+	out := new(EmailTranslationResponse)
+	err := c.cc.Invoke(ctx, TranslationService_ParseEmail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,15 +63,19 @@ func (c *translationServiceClient) Parse(ctx context.Context, in *TranslationReq
 // for forward compatibility
 type TranslationServiceServer interface {
 	// Retrieval
-	Parse(context.Context, *TranslationRequest) (*TranslationResponse, error)
+	Parse(context.Context, *NotificationTranslationRequest) (*NotificationTranslationResponse, error)
+	ParseEmail(context.Context, *EmailTranslationRequest) (*EmailTranslationResponse, error)
 }
 
 // UnimplementedTranslationServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedTranslationServiceServer struct {
 }
 
-func (UnimplementedTranslationServiceServer) Parse(context.Context, *TranslationRequest) (*TranslationResponse, error) {
+func (UnimplementedTranslationServiceServer) Parse(context.Context, *NotificationTranslationRequest) (*NotificationTranslationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Parse not implemented")
+}
+func (UnimplementedTranslationServiceServer) ParseEmail(context.Context, *EmailTranslationRequest) (*EmailTranslationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ParseEmail not implemented")
 }
 
 // UnsafeTranslationServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -75,7 +90,7 @@ func RegisterTranslationServiceServer(s grpc.ServiceRegistrar, srv TranslationSe
 }
 
 func _TranslationService_Parse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TranslationRequest)
+	in := new(NotificationTranslationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -87,7 +102,25 @@ func _TranslationService_Parse_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: TranslationService_Parse_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TranslationServiceServer).Parse(ctx, req.(*TranslationRequest))
+		return srv.(TranslationServiceServer).Parse(ctx, req.(*NotificationTranslationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TranslationService_ParseEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmailTranslationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranslationServiceServer).ParseEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranslationService_ParseEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranslationServiceServer).ParseEmail(ctx, req.(*EmailTranslationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -102,6 +135,10 @@ var TranslationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Parse",
 			Handler:    _TranslationService_Parse_Handler,
+		},
+		{
+			MethodName: "ParseEmail",
+			Handler:    _TranslationService_ParseEmail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
