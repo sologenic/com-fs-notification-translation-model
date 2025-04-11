@@ -3,6 +3,7 @@ module github.com/sologenic/com-fs-notification-translation-model
 go 1.23.7
 
 require (
+	github.com/sologenic/com-fs-email-template-model v0.0.0-20250402214545-b77f48e07dec
 	github.com/sologenic/com-fs-notification-model v0.0.0-20250328174139-bae032ac2541
 	github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20250131210530-7306ae3e5762
 	google.golang.org/grpc v1.65.0
@@ -19,7 +20,6 @@ require (
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rs/zerolog v1.33.0 // indirect
-	github.com/sologenic/com-fs-email-template-model v0.0.0-20250402214545-b77f48e07dec // indirect
 	github.com/sologenic/com-fs-utils-lib/go/logger v0.0.0-20240906214824-8118c42c5b35 // indirect
 	github.com/sologenic/com-fs-utils-lib/models/audit v0.0.0-20250131210530-7306ae3e5762 // indirect
 	github.com/sologenic/com-fs-utils-lib/models/metadata v0.0.0-20250131210530-7306ae3e5762 // indirect
