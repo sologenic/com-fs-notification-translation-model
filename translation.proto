@@ -32,7 +32,8 @@ message EmailTranslationRequest {
 }
 
 message EmailTranslationResponse {
-    string TranslatedBody = 1;
+    string Subject = 1;
+    string Body = 2;
 }
 
 // To add languages, add them in lowercase to be compatible with the translation file filenames
