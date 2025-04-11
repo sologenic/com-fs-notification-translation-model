@@ -29,11 +29,10 @@ message NotificationTranslationResponse {
 message EmailTranslationRequest {
     Language Language = 1;
     emailtemplate.EmailTemplateType EmailTemplateType = 2;
-    repeated emailtemplate.TextElement TextElements = 3; // List of content blocks to be translated
 }
 
 message EmailTranslationResponse {
-    repeated emailtemplate.TextElement TranslatedElements = 1;
+    string TranslatedBody = 1;
 }
 
 // To add languages, add them in lowercase to be compatible with the translation file filenames

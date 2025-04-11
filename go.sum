@@ -58,6 +58,8 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:
 github.com/rs/xid v1.5.0/go.mod h1:trrq9SKmegXys3aeAKXMUTdJsYXVwGY3RLcfgqegfbg=
 github.com/rs/zerolog v1.33.0 h1:1cU2KZkvPxNyfgEmhHAz/1A9Bz+llsdYzklWFzgp0r8=
 github.com/rs/zerolog v1.33.0/go.mod h1:/7mN4D5sKwJLZQ2b/znpjC3/GQWY/xaDXUM0kKWRHss=
+github.com/sologenic/com-fs-email-template-model v0.0.0-20250402214545-b77f48e07dec h1:3odmfGKOq51YuxMHj6zecs4V3wENJSEhOUO8jKX4d6w=
+github.com/sologenic/com-fs-email-template-model v0.0.0-20250402214545-b77f48e07dec/go.mod h1:4KfaWkDr9tQJOXWKxKBO7r7cFKqHfeXF/QfJrFhDZEs=
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250404212613-9b76c7edcfab h1:8p/aOz5GkhUNV2q4MO47hDoESmEMHTEvoXeyQEnT8mk=
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250404212613-9b76c7edcfab/go.mod h1:4KfaWkDr9tQJOXWKxKBO7r7cFKqHfeXF/QfJrFhDZEs=
 github.com/sologenic/com-fs-email-template-model v0.0.0-20250407180821-b5b49e944a5c h1:IPikQsc1Xj21zVzWy/Nd+THS5Hz0po65f9NUJBfQi2c=
