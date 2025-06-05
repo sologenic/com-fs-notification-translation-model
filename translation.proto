@@ -6,6 +6,7 @@ import "sologenic/com-fs-notification-model/types/types.proto";
 import "sologenic/com-fs-notification-model/parameters/parameters.proto";
 import "sologenic/com-fs-notification-model/formats/formats.proto";
 import "sologenic/com-fs-email-template-model/emailtemplate.proto";
+import "sologenic/com-fs-utils-lib/models/language/language.proto";
 
 option go_package = "./translation";
 
@@ -16,7 +17,7 @@ service TranslationService {
 }
 
 message NotificationTranslationRequest {
-    Language Language = 1;
+    language.Language Language = 1;
     notification.types.NotificationType NotificationType = 2;
     repeated notification.parameters.Parameter Parameter = 3;
     notification.formats.Format Format = 4;
@@ -27,7 +28,7 @@ message NotificationTranslationResponse {
 }
 
 message EmailTranslationRequest {
-    Language Language = 1;
+    language.Lang Language = 1;
     emailtemplate.EmailTemplateType EmailTemplateType = 2;
 }
 
@@ -36,10 +37,3 @@ message EmailTranslationResponse {
     string Body = 2;
 }
 
-// To add languages, add them in lowercase to be compatible with the translation file filenames
-enum Language {
-    NOT_USED_LANGUAGE = 0; // Need unique enum values for proto (C requirement, we don't use C)
-    english = 1;
-
-    korean = 100;
-}

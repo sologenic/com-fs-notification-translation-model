@@ -1,11 +1,12 @@
 module github.com/sologenic/com-fs-notification-translation-model
 
-go 1.23.7
+go 1.24.3
 
 require (
 	github.com/sologenic/com-fs-email-template-model v0.0.0-20250411003446-a4a450647f72
 	github.com/sologenic/com-fs-notification-model v0.0.0-20250404162422-163bee3e694c
 	github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20250314155456-e14d49a8b728
+	github.com/sologenic/com-fs-utils-lib/models/language v0.0.0-20250530185346-13f30acaff8e
 	google.golang.org/grpc v1.71.1
 	google.golang.org/protobuf v1.36.6
 )
