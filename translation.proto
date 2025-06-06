@@ -28,7 +28,7 @@ message NotificationTranslationResponse {
 }
 
 message EmailTranslationRequest {
-    language.Lang Language = 1;
+    language.Lang LanguageCode = 1; // Internal language enum, refer to `language.proto` in `com-fs-utils-lib/models/language`
     emailtemplate.EmailTemplateType EmailTemplateType = 2;
 }
 
