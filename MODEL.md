@@ -36,10 +36,10 @@ The `NotificationTranslationRequest` message provides notificationtranslationreq
 
 | Field Name | Type | Required/Optional | Description |
 |------------|------|-------------------|-------------|
-| Language | `language.Language` | Required | Language field |
+| Language | `language.Language` | Required | Language information |
 | NotificationType | `notification.types.NotificationType` | Required | Type classification for this item (see related enum) |
-| Parameter | `notification.parameters.Parameter` | Optional | Parameter field |
-| Format | `notification.formats.Format` | Required | Format field |
+| Parameter | `notification.parameters.Parameter` | Optional | Parameter information |
+| Format | `notification.formats.Format` | Required | Format information |
 
 **Use Cases:**
 - Creating new notificationtranslationrequest records
