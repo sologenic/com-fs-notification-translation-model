@@ -1,12 +1,12 @@
 module github.com/sologenic/com-fs-notification-translation-model
 
-go 1.24.3
+go 1.25.5
 
 require (
 	github.com/sologenic/com-fs-email-template-model v0.0.0-20250411003446-a4a450647f72
 	github.com/sologenic/com-fs-notification-model v0.0.0-20250404162422-163bee3e694c
-	github.com/sologenic/com-fs-utils-lib/go/grpc-client v0.0.0-20250314155456-e14d49a8b728
-	github.com/sologenic/com-fs-utils-lib/models/language v0.0.0-20250530185346-13f30acaff8e
+	github.com/sologenic/com-fs-utils-internal-lib/go/grpc-client v0.0.0-20260130172224-843f6dae3696
+	github.com/sologenic/com-fs-utils-lib/models/language v0.0.0-20260130170755-ffa545a27df1
 	google.golang.org/grpc v1.71.1
 	google.golang.org/protobuf v1.36.6
 )
@@ -25,9 +25,9 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rs/zerolog v1.34.0 // indirect
-	github.com/sologenic/com-fs-utils-lib/go/logger v0.0.0-20250314155456-e14d49a8b728 // indirect
-	github.com/sologenic/com-fs-utils-lib/models/audit v0.0.0-20250314155456-e14d49a8b728 // indirect
-	github.com/sologenic/com-fs-utils-lib/models/metadata v0.0.0-20250314155456-e14d49a8b728 // indirect
+	github.com/sologenic/com-fs-utils-internal-lib/go/logger v0.0.0-20260130172224-843f6dae3696 // indirect
+	github.com/sologenic/com-fs-utils-lib/models/audit v0.0.0-20260130170755-ffa545a27df1 // indirect
+	github.com/sologenic/com-fs-utils-lib/models/metadata v0.0.0-20260130170755-ffa545a27df1 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.60.0 // indirect
 	go.opentelemetry.io/otel v1.35.0 // indirect
